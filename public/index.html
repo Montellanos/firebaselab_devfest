@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Firebase Hosting</title>
+</head>
+
+<body onload="datas()">
+    
+        <img src="" id="img">
+    
+    <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCphr6Lke9-X4PWEMxHyRkxJVPVvGdFsNs",
+        authDomain: "firelab-5a41e.firebaseapp.com",
+        databaseURL: "https://firelab-5a41e.firebaseio.com",
+        storageBucket: "firelab-5a41e.appspot.com",
+        messagingSenderId: "844718885370"
+    };
+    firebase.initializeApp(config);
+    function datas() {
+        firebase.database().ref('img').on('value', function(snapshot) {
+          console.log(snapshot.val());
+          document.getElementById('img').src= snapshot.val();
+        });
+    }
+    </script>
+    <script type="text/javascript" charset="utf-8">
+    
+    </script>
+</body>
+
+</html>
